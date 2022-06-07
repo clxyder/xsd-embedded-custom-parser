@@ -79,12 +79,28 @@ main (int argc, char* argv[])
     //
     const XMLCh ls_id [] = {chLatin_L, chLatin_S, chNull};
 
-    DOMImplementation* impl (
+    custom_dom_implementation_impl* impl ((custom_dom_implementation_impl*)
       DOMImplementationRegistry::getDOMImplementation (ls_id));
 
-    xml::dom::auto_ptr<DOMLSParser> parser (
+    xml::dom::auto_ptr<custom_dom_LS_parser_impl> parser;
+
+    /**
+     * If true, we can successfully parse via the binary embedded schema file, but I 
+     * cannot access custom error handler. Else, we can access the custom error handler,
+     * but the binary embedded schema is not properly loaded.
+     */
+    if (false)
+    {
+      parser = xml::dom::auto_ptr<custom_dom_LS_parser_impl>((custom_dom_LS_parser_impl*)
       impl->createLSParser (
         DOMImplementationLS::MODE_SYNCHRONOUS, 0, mm, gp.get ()));
+    }
+    else
+    {
+      parser = xml::dom::auto_ptr<custom_dom_LS_parser_impl>((custom_dom_LS_parser_impl*)
+      impl->createCustomLSParser (
+        DOMImplementationLS::MODE_SYNCHRONOUS, 0, mm, gp.get ()));
+    }
 
     DOMConfiguration* conf (parser->getDomConfig ());
 
