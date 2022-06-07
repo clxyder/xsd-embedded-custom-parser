@@ -20,7 +20,7 @@ void custom_dom_LS_parser_impl::error(
             const XMLFileLoc colNum
         )
 {
-    std::cerr << "errorText" << XMLString::transcode(errorText) << std::endl;
+    std::cerr << "errorText: " << XMLString::transcode(errorText) << std::endl;
 
     // pass this->getCurrentNode() into error handler for custom processing
 
