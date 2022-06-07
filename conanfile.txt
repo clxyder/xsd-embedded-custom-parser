@@ -1,0 +1,6 @@
+[requires]
+xerces-c/3.2.3
+xsd/4.0.0
+
+[generators]
+cmake
