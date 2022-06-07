@@ -15,14 +15,15 @@
 
 #include <xsd/cxx/xml/string.hxx>
 #include <xsd/cxx/xml/dom/auto-ptr.hxx>
-#include <xsd/cxx/xml/dom/bits/error-handler-proxy.hxx>
 #include <xsd/cxx/xml/sax/std-input-source.hxx>
-
-#include <xsd/cxx/tree/error-handler.hxx>
 
 #include "library.hxx"
 #include "library-schema.hxx"
 #include "grammar-input-stream.hxx"
+
+#include "custom-error-handler.hxx"
+#include "custom-dom-LS-parser-impl.hxx"
+#include "custom-dom-implementation-impl.hxx"
 
 using namespace std;
 
@@ -137,9 +138,8 @@ main (int argc, char* argv[])
 
     // Set error handler.
     //
-    tree::error_handler<char> eh;
-    xml::dom::bits::error_handler_proxy<char> ehp (eh);
-    conf->setParameter (XMLUni::fgDOMErrorHandler, &ehp);
+    custom_error_handler eh;
+    conf->setParameter (XMLUni::fgDOMErrorHandler, &eh);
 
     // Parse XML documents.
     //
@@ -157,8 +157,6 @@ main (int argc, char* argv[])
       // Parse XML to DOM.
       //
       xml_schema::dom::auto_ptr<DOMDocument> doc (parser->parse (&wrap));
-
-      eh.throw_if_failed<xml_schema::parsing> ();
 
       // Parse DOM to the object model.
       //
