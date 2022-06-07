@@ -4,9 +4,9 @@
 
 custom_dom_LS_parser_impl::custom_dom_LS_parser_impl(XMLValidator* const valToAdopt,
                          MemoryManager* const manager,
-                         XMLGrammarPool* const gramPool)
+                         XMLGrammarPool* const gramPool): DOMLSParserImpl(valToAdopt, manager, gramPool)
 {
-    DOMLSParserImpl(valToAdopt, manager, gramPool);
+    // do nothing
 }
 
 void custom_dom_LS_parser_impl::error(

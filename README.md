@@ -11,7 +11,10 @@ representation of the schema is not properly loaded, thus resulting in multiple 
 Changing line 92 of `driver.cxx` to `true` allows for the binary representation the schema to load properly
 and validate the xml file, but I can longer access `custom_dom_LS_parser_impl::error`.
 
-Any suggestions?
+## Solution
+
+It was a simple solution of calling `DOMLSParserImpl` constructor from the initialization list instead of
+the function body.
 
 ## Install
 
@@ -21,4 +24,10 @@ conan install .. --build=missing
 
 cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug
 cmake --build .
+```
+
+## Usage
+
+```bash
+./build/bin/driver ./library.xml
 ```
