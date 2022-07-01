@@ -11,6 +11,10 @@ the function body.
 
 ## Install
 
+```
+sudo apt install gcc-arm-none-eabi arm-none-eabi
+```
+
 ```bash
 mkdir build; cd build
 conan install .. --build=missing
