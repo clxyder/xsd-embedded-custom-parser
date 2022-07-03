@@ -12,7 +12,7 @@ the function body.
 ## Install
 
 ```
-sudo apt install gcc-arm-none-eabi arm-none-eabi
+sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi gdb-multiarch openocd
 ```
 
 ```bash
