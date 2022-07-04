@@ -63,8 +63,6 @@ add_library(driver_lib STATIC
     custom-error-handler.cxx
     custom-dom-LS-parser-impl.hxx
     custom-dom-LS-parser-impl.cxx
-    custom-dom-implementation-impl.hxx
-    custom-dom-implementation-impl.cxx
 )
 
 target_include_directories(driver_lib PUBLIC "./")

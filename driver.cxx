@@ -23,7 +23,6 @@
 
 #include "custom-error-handler.hxx"
 #include "custom-dom-LS-parser-impl.hxx"
-#include "custom-dom-implementation-impl.hxx"
 
 using namespace std;
 
@@ -75,16 +74,9 @@ main (int argc, char* argv[])
     //
     gp->lockPool ();
 
-    // Get an implementation of the Load-Store (LS) interface.
+    // Get an implementation of a Load-Store (LS) parser.
     //
-    const XMLCh ls_id [] = {chLatin_L, chLatin_S, chNull};
-
-    custom_dom_implementation_impl* impl ((custom_dom_implementation_impl*)
-      DOMImplementationRegistry::getDOMImplementation (ls_id));
-
-    xml::dom::auto_ptr<custom_dom_LS_parser_impl> parser((custom_dom_LS_parser_impl*)
-      impl->createCustomLSParser (
-        DOMImplementationLS::MODE_SYNCHRONOUS, 0, mm, gp.get ()));
+    xml::dom::auto_ptr<custom_dom_LS_parser_impl> parser(new (mm) custom_dom_LS_parser_impl(0, mm, gp.get ()));
 
     DOMConfiguration* conf (parser->getDomConfig ());
 
