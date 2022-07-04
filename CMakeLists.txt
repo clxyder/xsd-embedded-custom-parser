@@ -1,4 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
+
+# HACK: For cross-compilation to work
+set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
+
 project(xsd_embedded)
 
 if (EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
