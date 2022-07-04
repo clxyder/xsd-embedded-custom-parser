@@ -14,10 +14,8 @@ conan="$HOME/.local/bin/conan"
 build_kit=($5); build_triple=${build_kit[2]}
 build_type=$4;  build_type=${build_type,,}
 
-conan_profile="default"
+conan_profile="profile-$build_type-$build_triple"
 
-if [ "$build_triple" == "arm-none-eabi" ]; then
-  conan_profile="profile-$build_type-$build_triple"
-fi
+echo "${conan} $1 $2 $3 -pr ${conan_profile}"
 
 ${conan} $1 $2 $3 -pr ${conan_profile}
