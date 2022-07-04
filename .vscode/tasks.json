@@ -6,7 +6,7 @@
         {
             "label": "conan install",
             "type": "shell",
-            "command": "${workspaceFolder}/scripts/conan.sh",
+            "command": "${workspaceFolder}/utils/scripts/conan.sh",
             "args": [
                 "install ${workspaceFolder}",
                 "-if ${command:cmake.buildDirectory}",

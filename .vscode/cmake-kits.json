@@ -8,7 +8,7 @@
     },
     {
       "name": "GCC 7.5.0 arm-linux-gnueabi",
-      "toolchainFile": "./cmake/toolchain-arm-linux-gnueabi.cmake",
+      "toolchainFile": "./utils/toolchains/toolchain-arm-linux-gnueabi.cmake",
       "compilers": {
         "C": "/usr/bin/arm-linux-gnueabi-gcc",
         "CXX": "/usr/bin/arm-linux-gnueabi-g++"
