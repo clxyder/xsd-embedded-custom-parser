@@ -20,7 +20,7 @@ sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi gdb-multiarch openocd
 For normal usage with Linux, the following packages are needed
 
 ```
-sudo apt install gcc-arm-linux-gnueabi binutils-arm-linux-gnueabi gdb-multiarch openocd
+sudo apt install gcc-arm-linux-gnueabi g++-arm-linux-gnueabi binutils-arm-linux-gnueabi gdb-multiarch openocd
 ```
 
 ```bash
