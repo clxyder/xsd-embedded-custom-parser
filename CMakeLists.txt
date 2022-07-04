@@ -36,7 +36,8 @@ endif()
 # 
 
 if (EXISTS ${CMAKE_BINARY_DIR}/bin/xsdbin)
-    execute_process(COMMAND ${CMAKE_BINARY_DIR}/bin/xsdbin --output-dir ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/library.xsd)
+    execute_process(COMMAND ${CMAKE_BINARY_DIR}/bin/xsdbin --output-dir ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/library.xsd)
+    execute_process(COMMAND mv ${CMAKE_SOURCE_DIR}/include/library-schema.cxx ${CMAKE_SOURCE_DIR}/src)
 endif()
 
 # 
@@ -44,7 +45,8 @@ endif()
 # 
 
 if (DEFINED CONAN_XSD_ROOT)
-    execute_process(COMMAND ${CONAN_XSD_ROOT}/bin/xsd cxx-tree --output-dir ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/library.xsd)
+    execute_process(COMMAND ${CONAN_XSD_ROOT}/bin/xsd cxx-tree --output-dir ${CMAKE_SOURCE_DIR}/include --include-prefix include/ ${CMAKE_SOURCE_DIR}/library.xsd)
+    execute_process(COMMAND mv ${CMAKE_SOURCE_DIR}/include/library.cxx ${CMAKE_SOURCE_DIR}/src)
 endif()
 
 # 
@@ -53,16 +55,16 @@ endif()
 
 add_executable(driver driver.cxx)
 add_library(driver_lib STATIC
-    grammar-input-stream.hxx
-    grammar-input-stream.cxx
-    library-schema.hxx
-    library-schema.cxx
-    library.hxx
-    library.cxx
-    custom-error-handler.hxx
-    custom-error-handler.cxx
-    custom-dom-LS-parser-impl.hxx
-    custom-dom-LS-parser-impl.cxx
+    include/grammar-input-stream.hxx
+    include/library-schema.hxx
+    include/library.hxx
+    include/custom-error-handler.hxx
+    include/custom-dom-LS-parser-impl.hxx
+    src/grammar-input-stream.cxx
+    src/library-schema.cxx
+    src/library.cxx
+    src/custom-error-handler.cxx
+    src/custom-dom-LS-parser-impl.cxx
 )
 
 target_include_directories(driver_lib PUBLIC "./")

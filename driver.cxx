@@ -17,12 +17,12 @@
 #include <xsd/cxx/xml/dom/auto-ptr.hxx>
 #include <xsd/cxx/xml/sax/std-input-source.hxx>
 
-#include "library.hxx"
-#include "library-schema.hxx"
-#include "grammar-input-stream.hxx"
+#include "include/library.hxx"
+#include "include/library-schema.hxx"
+#include "include/grammar-input-stream.hxx"
 
-#include "custom-error-handler.hxx"
-#include "custom-dom-LS-parser-impl.hxx"
+#include "include/custom-error-handler.hxx"
+#include "include/custom-dom-LS-parser-impl.hxx"
 
 using namespace std;
 
