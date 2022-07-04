@@ -1,3 +1,3 @@
 {
-    "cmake.buildDirectory": "${workspaceFolder}/cmake-build-${buildType}-${buildKitTriple}"
+    "cmake.buildDirectory": "${workspaceFolder}/cmake-build-${variants:buildType}-${buildKitTriple}",
 }
