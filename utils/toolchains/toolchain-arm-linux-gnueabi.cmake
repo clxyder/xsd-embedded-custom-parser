@@ -1,8 +1,6 @@
 set(CMAKE_SYSTEM_NAME Linux)
 set(CMAKE_SYSTEM_PROCESSOR arm)
 
-set(CMAKE_SYSROOT /usr/arm-linux-gnueabi)
-
 set(HOST_TOOL_PATH /usr/bin)
 set(CMAKE_C_COMPILER ${HOST_TOOL_PATH}/arm-linux-gnueabi-gcc)
 set(CMAKE_CXX_COMPILER ${HOST_TOOL_PATH}/arm-linux-gnueabi-g++)
