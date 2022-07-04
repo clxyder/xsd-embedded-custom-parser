@@ -17,6 +17,8 @@ For bare-metal installation, the following packages are needed
 sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi gdb-multiarch openocd
 ```
 
+Or download the [ARM GNU Toolchain](https://developer.arm.com/downloads/-/gnu-rm).
+
 For normal usage with Linux, the following packages are needed
 
 ```
