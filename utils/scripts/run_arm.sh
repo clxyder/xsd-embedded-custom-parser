@@ -1,7 +1,9 @@
-#! /bin/bash
+#!/bin/bash
+
+utils_dir=$(dirname $(dirname $0))
 
 # from http://downloads.raspberrypi.org/raspbian/images
-rpi_img="rpi_imgs/2019-09-26-raspbian-buster.img"
+rpi_img="${utils_dir}/rpi_imgs/2019-09-26-raspbian-buster.img"
 mnt_raspbian="/mnt/raspbian"
 
 function run_arm() {
@@ -13,9 +15,9 @@ function run_arm() {
     -nographic \
     -hda "./${rpi_img}" \
     -net user,hostfwd=tcp::5022-:22 \
-    -dtb ./qemu-rpi-kernel/versatile-pb-buster.dtb \
+    -dtb ./${utils_dir}/qemu-rpi-kernel/versatile-pb-buster.dtb \
     -semihosting-config enable=on \
-    -kernel ./qemu-rpi-kernel/kernel-qemu-4.19.50-buster \
+    -kernel ./${utils_dir}/qemu-rpi-kernel/kernel-qemu-4.19.50-buster \
     -append 'root=/dev/sda2 panic=1' \
     -no-reboot
     ./cmake-build-debug-arm-linux-elf/bin/driver
