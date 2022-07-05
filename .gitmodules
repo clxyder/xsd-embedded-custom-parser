@@ -1,0 +1,3 @@
+[submodule "utils/qemu-rpi-kernel"]
+	path = utils/qemu-rpi-kernel
+	url = https://github.com/dhruvvyas90/qemu-rpi-kernel.git
