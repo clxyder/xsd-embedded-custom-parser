@@ -14,7 +14,7 @@ the function body.
 To enable 32-bit build, install the following
 
 ```
-sudo apt install gcc-multilib
+sudo apt install gcc-multilib g++-multilib
 ```
 
 For bare-metal installation, the following packages are needed
