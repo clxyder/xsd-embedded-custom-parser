@@ -1,7 +1,9 @@
 {
-    "cmake.buildDirectory": "${workspaceFolder}/cmake-build-${variant:buildType}-${buildKitTriple}",
+    "cmake.buildDirectory": "${workspaceFolder}/cmake-build-${variant:buildType}-${env:CMAKE_BUILD_KIT_TRIPLE}",
     "files.associations": {
         "cassert": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "cstddef": "cpp",
+        "fstream": "cpp"
     },
 }
