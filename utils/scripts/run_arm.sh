@@ -3,8 +3,20 @@
 utils_dir=$(dirname $(dirname $0))
 
 # from http://downloads.raspberrypi.org/raspbian/images
-rpi_img="${utils_dir}/rpi_imgs/2019-09-26-raspbian-buster.img"
+img_name="2019-09-26-raspbian-buster"
+rpi_img="${utils_dir}/rpi_imgs/${img_name}.img"
 mnt_raspbian="/mnt/raspbian"
+
+function download_rpi_img() {
+  rpi_img_repo="http://downloads.raspberrypi.org/raspbian/images"
+  rpi_release="raspbian-2019-09-30"
+  rpi_img_req_zip="${rpi_img_repo}/${rpi_release}/${img_name}.zip"
+  echo "This may take a while..."
+  curl -OJ "${rpi_img_req_zip}"
+  unzip "${img_name}.zip"
+  mkdir -p "${utils_dir}/rpi_imgs"
+  mv "${img_name}.*" "${utils_dir}/rpi_imgs"
+}
 
 function run_arm() {
   # from https://github.com/dhruvvyas90/qemu-rpi-kernel
@@ -33,6 +45,10 @@ function transfer_files() {
   cp ./library.xsd ${mnt_raspbian}/home/pi
   sudo umount ${mnt_raspbian}
 }
+
+if [ ! -f "${rpi_img}" ]; then
+  download_rpi_img
+done
 
 transfer_files
 
