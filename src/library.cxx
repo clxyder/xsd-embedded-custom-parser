@@ -38,7 +38,7 @@
 
 #include <xsd/cxx/pre.hxx>
 
-#include "include/library.hxx"
+#include "library.hxx"
 
 namespace library
 {

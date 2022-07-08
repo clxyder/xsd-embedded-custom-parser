@@ -2,7 +2,7 @@
 // copyright : not copyrighted - public domain
 
 #include <cassert>
-#include "include/grammar-input-stream.hxx"
+#include "grammar-input-stream.hxx"
 
 grammar_input_stream::
 grammar_input_stream (const XMLByte* data, std::size_t size)

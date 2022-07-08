@@ -2,7 +2,7 @@
 
 #include <xercesc/util/XMLString.hpp>
 
-#include "include/custom-error-handler.hxx"
+#include "custom-error-handler.hxx"
 
 using namespace xercesc;
 

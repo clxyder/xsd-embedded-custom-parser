@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "include/custom-dom-LS-parser-impl.hxx"
+#include "custom-dom-LS-parser-impl.hxx"
 
 custom_dom_LS_parser_impl::custom_dom_LS_parser_impl(XMLValidator* const valToAdopt,
                          MemoryManager* const manager,

@@ -15,43 +15,43 @@ endif()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# 
+##############################################################################
 #  xsdbin
-# 
+##############################################################################
 
 add_executable(xsdbin xsdbin.cxx)
-target_include_directories(xsdbin PUBLIC .)
+target_include_directories(xsdbin PUBLIC include include)
 target_link_libraries(xsdbin ${CONAN_LIBS})
 
-# 
-#  Make xsdbin if not already built
-# 
+# # 
+# #  Make xsdbin if not already built
+# # 
 
-if (NOT EXISTS ${CMAKE_BINARY_DIR}/bin/xsdbin)
-    execute_process(COMMAND echo ${CMAKE_BINARY_DIR}/bin/xsdbin)
-endif()
+# if (NOT EXISTS ${CMAKE_BINARY_DIR}/bin/xsdbin)
+#     execute_process(COMMAND echo ${CMAKE_BINARY_DIR}/bin/xsdbin)
+# endif()
 
-# 
-#  Generate XSD binary representation
-# 
+# # 
+# #  Generate XSD binary representation
+# # 
 
-if (EXISTS ${CMAKE_BINARY_DIR}/bin/xsdbin)
-    execute_process(COMMAND ${CMAKE_BINARY_DIR}/bin/xsdbin --output-dir ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/library.xsd)
-    execute_process(COMMAND mv ${CMAKE_SOURCE_DIR}/include/library-schema.cxx ${CMAKE_SOURCE_DIR}/src)
-endif()
+# if (EXISTS ${CMAKE_BINARY_DIR}/bin/xsdbin)
+#     execute_process(COMMAND ${CMAKE_BINARY_DIR}/bin/xsdbin --output-dir ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/library.xsd)
+#     execute_process(COMMAND mv ${CMAKE_SOURCE_DIR}/include/library-schema.cxx ${CMAKE_SOURCE_DIR}/src)
+# endif()
 
-# 
-#  Generate parser classes
-# 
+# # 
+# #  Generate parser classes
+# # 
 
-if (DEFINED CONAN_XSD_ROOT)
-    execute_process(COMMAND ${CONAN_XSD_ROOT}/bin/xsd cxx-tree --output-dir ${CMAKE_SOURCE_DIR}/include --include-prefix include/ ${CMAKE_SOURCE_DIR}/library.xsd)
-    execute_process(COMMAND mv ${CMAKE_SOURCE_DIR}/include/library.cxx ${CMAKE_SOURCE_DIR}/src)
-endif()
+# if (DEFINED CONAN_XSD_ROOT)
+#     execute_process(COMMAND ${CONAN_XSD_ROOT}/bin/xsd cxx-tree --output-dir ${CMAKE_SOURCE_DIR}/include --include-prefix include/ ${CMAKE_SOURCE_DIR}/library.xsd)
+#     execute_process(COMMAND mv ${CMAKE_SOURCE_DIR}/include/library.cxx ${CMAKE_SOURCE_DIR}/src)
+# endif()
 
-# 
+##############################################################################
 #  driver
-# 
+##############################################################################
 
 add_executable(driver driver.cxx)
 add_library(driver_lib STATIC
@@ -67,7 +67,7 @@ add_library(driver_lib STATIC
     src/custom-dom-LS-parser-impl.cxx
 )
 
-target_include_directories(driver_lib PUBLIC "./")
+target_include_directories(driver_lib PUBLIC include include)
 target_link_libraries(driver_lib ${CONAN_LIBS})
 target_link_libraries(driver driver_lib ${CONAN_LIBS})
 
