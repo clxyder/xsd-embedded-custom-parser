@@ -14,7 +14,7 @@ for xsdbin in "${xsdbin_x86_paths_array[@]}"; do
   if [[ "${xsdbin}" == *"x86_64"* ]]; then
     suffix="-schema-64"
   fi
-  cmd="${xsdbin} --hxx-suffix "${suffix}.hxx" --cxx-suffix "${suffix}.cxx" --output-dir ${workspace_dir}/include ${workspace_dir}/library.xsd"
+  cmd="${xsdbin} --hxx-suffix ${suffix}.hxx --cxx-suffix ${suffix}.cxx --output-dir ${workspace_dir}/include ${workspace_dir}/library.xsd"
   echo ${cmd}
   $(${cmd})
 done
