@@ -11,6 +11,12 @@ the function body.
 
 ## Install
 
+Install git submodules, with the following command
+
+```
+git submodule update --init --recursive
+```
+
 To enable 32-bit build, install the following
 
 ```
