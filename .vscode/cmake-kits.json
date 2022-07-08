@@ -11,8 +11,8 @@
       }
     },
     {
-      "name": "GCC 7.5.0 x86_64-linux-gnu-32",
-      "toolchainFile": "./utils/toolchains/toolchain-x86_64-linux-gnu-32.cmake",
+      "name": "GCC 7.5.0 x86-linux-gnu",
+      "toolchainFile": "./utils/toolchains/toolchain-x86-linux-gnu.cmake",
       "compilers": {
         "C": "/usr/bin/gcc",
         "CXX": "/usr/bin/g++"
@@ -22,13 +22,13 @@
       }
     },
     {
-      "name": "GCC 7.5.0 x86_64-linux-gnu-64",
+      "name": "GCC 7.5.0 x86_64-linux-gnu",
       "compilers": {
         "C": "/usr/bin/gcc",
         "CXX": "/usr/bin/g++"
       },
       "environmentVariables": {
-        "CMAKE_BUILD_KIT_TRIPLE": "x86_64-linux-gnu-64"
+        "CMAKE_BUILD_KIT_TRIPLE": "x86_64-linux-gnu"
       }
     }
   ]
