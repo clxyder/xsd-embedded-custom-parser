@@ -63,7 +63,6 @@ add_library(driver_lib STATIC
     include/custom-error-handler.hxx
     include/custom-dom-LS-parser-impl.hxx
     src/grammar-input-stream.cxx
-    src/library-schema.cxx
     src/library-schema-32.cxx
     src/library-schema-64.cxx
     src/library.cxx

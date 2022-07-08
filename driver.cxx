@@ -54,6 +54,9 @@ main (int argc, char* argv[])
 
     auto_ptr<XMLGrammarPool> gp (new XMLGrammarPoolImpl (mm));
 
+    size_t library_schema_size = sizeof (library_schema);
+    std::cout << "sizeof (library_schema): " << library_schema_size << "\n";
+
     try
     {
       grammar_input_stream is (library_schema, sizeof (library_schema));
@@ -135,7 +138,8 @@ main (int argc, char* argv[])
 
     // Parse XML documents.
     //
-    for (unsigned long i (0); i < 10; ++i)
+    const unsigned int NUM_LOOPS = 1;
+    for (unsigned long i (0); i < NUM_LOOPS; ++i)
     {
       ifstream ifs;
       ifs.exceptions (ifstream::badbit | ifstream::failbit);

@@ -1,6 +1,13 @@
-// Automatically generated. Do not edit.
-//
+#if __GNUC__
+#if __x86_64__ || __ppc64__
+#define ENVIRONMENT64
+#else
+#define ENVIRONMENT32
+#endif
+#endif
 
-#include <xercesc/util/XercesDefs.hpp>
-
-extern const XMLByte library_schema[4003UL];
+#ifdef ENVIRONMENT64
+#include "library-schema-64.hxx"
+#else
+#include "library-schema-32.hxx"
+#endif
