@@ -57,11 +57,15 @@ add_executable(driver driver.cxx)
 add_library(driver_lib STATIC
     include/grammar-input-stream.hxx
     include/library-schema.hxx
+    include/library-schema-32.hxx
+    include/library-schema-64.hxx
     include/library.hxx
     include/custom-error-handler.hxx
     include/custom-dom-LS-parser-impl.hxx
     src/grammar-input-stream.cxx
     src/library-schema.cxx
+    src/library-schema-32.cxx
+    src/library-schema-64.cxx
     src/library.cxx
     src/custom-error-handler.cxx
     src/custom-dom-LS-parser-impl.cxx
