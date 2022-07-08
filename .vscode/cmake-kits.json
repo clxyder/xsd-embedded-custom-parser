@@ -28,7 +28,7 @@
         "CXX": "/usr/bin/g++"
       },
       "environmentVariables": {
-        "CMAKE_BUILD_KIT_TRIPLE": "x86-linux-gnu"
+        "CMAKE_BUILD_KIT_TRIPLE": "x86_64-linux-gnu"
       }
     }
   ]
