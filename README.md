@@ -29,6 +29,8 @@ For normal usage with Linux, the following packages are needed
 sudo apt install gcc-arm-linux-gnueabi g++-arm-linux-gnueabi binutils-arm-linux-gnueabi gdb-multiarch openocd
 ```
 
+^Note: The above packages conflict with each other, there is a reported [bug](https://bugs.launchpad.net/ubuntu/+source/gcc-defaults/+bug/1300211) on this.
+
 ```bash
 mkdir build; cd build
 conan install .. --build=missing
